@@ -1,0 +1,328 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+
+/* #region general comand */
+.nameAndInfo {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.nameAndInfo h3,
+.nameAndInfo p {
+    margin: 5px 0;
+    font-weight: normal;
+    color: grey;
+}
+
+/* #endregion */
+
+
+/* #region backBackground */
+#backBackground .greenPart {
+    background-color: #009688;
+    width: 100%;
+    height: 130px;
+}
+
+#backBackground .greyPart {
+    background-color: #b1b2af;
+    width: 100%;
+    height: calc(100vh - 130px);
+}
+
+/* #endregion */
+/* #region layout */
+/* #region positionament container */
+#container {
+    width: 100%;
+    height: 100vh;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* #endregion */
+
+/* #region aside */
+#container aside {
+    width: calc(370px);
+    height: calc(100%);
+    float: left;
+}
+
+#container aside .myProfile {
+    width: 100%;
+    height: 60px;
+}
+
+#container aside .spamNotification {
+    width: 100%;
+    height: 85px;
+}
+
+#container aside .searchContact {
+    width: 100%;
+    height: 50px;
+}
+
+#container aside .contact {
+    background-color: #fff;
+    width: 100%;
+    height: calc(100% - 60px - 85px - 50px);
+
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+}
+
+/* #endregion */
+
+/* #region main */
+#container main {
+    width: calc(100% - 370px);
+    height: calc(100%);
+    float: left;
+}
+
+#container main .profileConversator {
+    width: 100%;
+    height: 60px;
+}
+
+#container main .mainChat {
+    width: 100%;
+    height: calc(100% - 60px - 60px);
+    overflow-y: auto;
+}
+
+#container main .newMessage {
+    width: 100%;
+    height: 60px;
+}
+
+/* #endregion */
+/* #endregion */
+
+/* #region ASIDE */
+/* #region myProfile */
+aside .myProfile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-right: 1px solid #DADADA;
+    background-color: #EDEDED;
+    box-sizing: inherit;
+}
+
+aside .myProfile .left,
+aside .myProfile .right {
+    margin: 0 20px;
+}
+
+aside .myProfile .right i {
+    margin-right: 10px;
+}
+
+aside .myProfile .left img {
+    height: 40px;
+    border-radius: 50%;
+}
+
+aside .spamNotification {
+    background-color: #9DE1FE;
+    display: flex;
+    align-items: center;
+}
+
+aside .spamNotification i {
+    color: #9DE1FE;
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 12px;
+    font-size: 18px;
+    margin: 0 10px;
+}
+
+
+aside .searchContact {
+    background-color: #F6F6F6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+aside .searchContact input {
+    width: 92%;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 20px;
+    border: 0;
+}
+
+aside .contact {
+    overflow-y: auto;
+}
+
+aside .contact .chat {
+    height: 70px;
+    width: 100%;
+    background-color: #fff;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+}
+
+aside .contact .chat:hover {
+    background-color: #F5F5F5;
+}
+
+aside .contact .chat.active {
+    background-color: #EBEBEB;
+}
+
+aside .contact .chat img {
+    width: 40px;
+    margin: 0 15px;
+    border-radius: 50%;
+}
+
+aside .contact .chat .nameAndInfo {
+    height: 70px;
+    width: calc(100% - 90px);
+    border-bottom: 1px solid #DADADA;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+aside .contact .chat .nameAndInfo h3,
+aside .contact .chat .nameAndInfo p {
+    margin: 0;
+}
+
+aside .contact .chat .data {
+    position: absolute;
+    top: 16px;
+    right: 14px;
+    font-size: 12px;
+    color: grey;
+}
+
+/* #endregion */
+/* #endregion */
+
+
+/* #region MAIN */
+main .profileConversator {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: #EDEDED;
+    box-sizing: inherit;
+}
+
+main .profileConversator .left {
+    margin: 0 20px;
+}
+
+main .profileConversator .right i {
+    margin-right: 30px;
+}
+
+main .profileConversator .left img {
+    height: 40px;
+    border-radius: 50%;
+}
+
+
+main .mainChat {
+    padding: 0 9%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-image: url(../assets/consegna/img/minev2.jpg);
+    background-repeat: repeat;
+
+    overflow-y: auto;
+}
+
+main .mainChat .dataAndCheck {
+    position: absolute;
+    bottom: 3px;
+    right: 10px;
+    font-size: 11px;
+    color: grey;
+}
+
+/* mandato sent */
+
+main .mainChat .message div.menu {
+    display: none;
+    position: absolute;
+    top: 17px;
+    right: 21px;
+
+    background-color: white;
+    box-shadow: 1px 1px 6px lightgrey;
+    z-index: 1;
+    padding: 5px 0;
+}
+
+main .mainChat .message div.menu span:hover {
+    background-color: lightgrey;
+}
+
+/* ricevuto received */
+main .mainChat .message.received {
+    position: relative;
+    padding: 6px 60px 8px 9px;
+    margin: 10px 0;
+    background-color: #fff;
+    border-radius: 7.5px;
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+}
+
+main .mainChat .message.received i.triangolino {
+    position: absolute;
+    font-size: 20px;
+    top: -7px;
+    left: -6px;
+    color: #fff;
+}
+
+main .newMessage {
+    display: flex;
+    align-items: center;
+    background-color: #F0F0F0;
+}
+
+main .newMessage input {
+    width: calc(100% - 150px);
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 20px;
+    border: 0;
+    color: #919191;
+}
+
+main .textMessage {
+    width: 40%;
+    background-color: lightgray;
+    padding: 1rem;
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- VUE SCRIPT -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- MY SCRIPT -->
+    <script defer src="js/script.js"></script>
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- MEDIAQUESRY -->
+    <link rel="stylesheet" href="css/mediaquery.css">
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href='https://css.gg/share.css' rel='stylesheet'>
+</head>
+
+<body>
+    <div id="app">
+        <div id="backBackground">
+            <div class="greenPart"></div>
+            <div class="greyPart"></div>
+        </div>
+
+        <div id="container">
+            <aside>
+                <div class="myProfile">
+
+                    <div class="left">
+                        <img src="assets/consegna/img/avatar_io.jpg" alt="">
+                    </div>
+
+                    <div class="right">
+                        <i class="fas fa-circle-notch"></i>
+                        <i class="far fa-comment-alt"></i>
+
+                    </div>
+                </div>
+
+                <div class="spamNotification">
+                    <i class="fas fa-bell-slash"></i>
+                    <div class="nameAndInfo">
+                        <h3>Ricevi notifiche di nuovi messaggi</h3>
+                        <p>Attiva notifiche dexstop ></p>
+                    </div>
+                </div>
+
+                <div class="searchContact">
+                    <input type="text" placeholder="Cerca o inizia una nuova chat">
+                </div>
+
+                <!-- lista di contatti presenti nel aside bar -->
+                <div class="contact">
+                    <!-- il singolo contatto che si crea tot volte
+                per la lunghezza dell array e che al click cambia focus -->
+                    <div class="chat" v-for="(contact, index) in contacts" @click="activeChat(index)">
+                        <img :src="`assets/consegna/img/avatar` + contact.avatar + `.jpg`" alt="">
+                        <div class="nameAndInfo">
+                            <!-- prendo gli elementi dal oggetto della singola chat -->
+                            <h3>{{contact.name}}</h3>
+                            <p>{{contact.messages[contact.messages.length - 1].message}}</p>
+                        </div>
+                        <div class="data">{{contact.messages[contact.messages.length - 1].date}}</div>
+                    </div>
+                </div>
+            </aside>
+
+            <main>
+
+                <!-- creo il profilo avatar da mettere nella navbar sopra
+            la mainChat che cambii in base a quale chat e' selezionata -->
+                <div class="profileConversator">
+                    <div class="left">
+                        <img src="assets/consegna/img/avatar_1.jpg" alt="">
+                        <div class="nameAndInfo">
+                            <!-- prendo gli elementi dal oggetto della singola chat -->
+                            <h3>contact-name</h3>
+                            <p>Ultimo accesso oggi alle ore</p>
+                        </div>
+                    </div>
+
+                    <div class="right">
+                        <i class="fas fa-search"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                </div>
+
+                <!-- creo il for per ciclare le mainChat in base a quale persona seleziono -->
+                <div class="mainChat">
+                    <!-- creo un ulteriore for per ciclare i messaggi interni alle chat e scriverli -->
+                    <div class="message">
+                        <!-- prendo gli elementi del arrey di messaggi -->
+                        <div class="textMessage"> MESSAGGIO DEL CONTATTO </div>
+                        <div class="dataAndCheck">data<i class="check fas fa-check"></i></div>
+                        <i class="fas fa-caret-down triangolino"></i>
+                        <i class="fas fa-chevron-down openMiniMenu">
+                        </i>
+                        <div class="menu">
+                            <span class="removeMessage">rimuovi</span>
+                            <span>info</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- serve per poter scrivere i messaggi -->
+                <div class="newMessage">
+                    <i class="far fa-meh"></i>
+                    <i class="fas fa-paperclip"></i>
+                    <input placeholder="scrivi un messaggio" type="text">
+                    <i class="fas fa-microphone"></i>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+@media all and (min-width: 1440px) {
+    #container {
+        background-color: aqua;
+        width: 1400px;
+        height: 95vh;
+
+        position: absolute;
+        top: 2.5vh;
+        left: calc((100% - 1400px)/2);
+    }
+}
