@@ -4,6 +4,7 @@ createApp({
     data() {
         return {
             active: 0,
+            newMessage: "",
             contacts: [
                 {
                     name: 'Michele',
@@ -178,7 +179,41 @@ createApp({
         activeChat(item) {
             console.log(item);
             this.active = item
-        }
+        },
+        //funzione che inizia premendo l'invio ovverso spedendo il messaggio
+        sendingMessage: function () {
+            //per la chat che é attualmente la main
+            let index = this.contacts.filter((msg) => msg.visible == true)
+            let d = new Date();
+
+            //aggiunge all'array un nuovo elemento con la sua data, il contenuto
+            //che era all'interno dell input, e lo status
+            if (this.newMessage) {
+                index[this.active].messages.push({
+                    date: `${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`,
+                    message: this.newMessage,
+                    status: 'sent'
+                })
+            }
+
+            //richiamo della funzione che risponde a sua volta al mio messaggio
+            this.newMessage = ""
+            this.reply()
+        },
+        //funzione di risposta che ha lo stesso principio della precedente solo che
+        //quello che la fa partire e' un setTimeout
+        reply: function () {
+            let index = this.contacts.filter((msg) => msg.visible == true)
+            let d = new Date();
+
+            setTimeout(() => {
+                index[this.active].messages.push({
+                    date: `${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`,
+                    message: 'ok?',
+                    status: 'received'
+                })
+            }, 1000)
+        },
     },
 
 
