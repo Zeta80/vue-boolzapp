@@ -3,6 +3,7 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
+            active: 0,
             contacts: [
                 {
                     name: 'Michele',
@@ -176,6 +177,7 @@ createApp({
     methods: {
         activeChat(item) {
             console.log(item);
+            this.active = item
         }
     },
 

@@ -77,11 +77,14 @@
             la mainChat che cambii in base a quale chat e' selezionata -->
                 <div class="profileConversator">
                     <div class="left">
-                        <img src="assets/consegna/img/avatar_1.jpg" alt="">
+                        <img :src="`assets/consegna/img/avatar_${active + 1}.jpg`" alt="">
                         <div class="nameAndInfo">
                             <!-- prendo gli elementi dal oggetto della singola chat -->
-                            <h3>contact-name</h3>
-                            <p>Ultimo accesso oggi alle ore</p>
+                            <h3>{{contacts[active].name}}</h3>
+                            <p>Ultimo accesso oggi alle ore {{contacts[active].messages[contacts[active].messages.length
+                                -
+                                1].date}}
+                            </p>
                         </div>
                     </div>
 
