@@ -97,10 +97,11 @@
                 <!-- creo il for per ciclare le mainChat in base a quale persona seleziono -->
                 <div class="mainChat">
                     <!-- creo un ulteriore for per ciclare i messaggi interni alle chat e scriverli -->
-                    <div class="message">
+                    <div class="message" v-for="(message, messageIndex) in contacts[active].messages"
+                        :class="message.status">
                         <!-- prendo gli elementi del arrey di messaggi -->
-                        <div class="textMessage"> MESSAGGIO DEL CONTATTO </div>
-                        <div class="dataAndCheck">data<i class="check fas fa-check"></i></div>
+                        <div class="textMessage"> {{ message.message }} </div>
+                        <div class="dataAndCheck">{{ message.date}}<i class="check fas fa-check"></i></div>
                         <i class="fas fa-caret-down triangolino"></i>
                         <i class="fas fa-chevron-down openMiniMenu">
                         </i>
@@ -115,7 +116,8 @@
                 <div class="newMessage">
                     <i class="far fa-meh"></i>
                     <i class="fas fa-paperclip"></i>
-                    <input placeholder="scrivi un messaggio" type="text">
+                    <input v-on:keyup.enter="sendingMessage" v-model="newMessage" placeholder="scrivi un messaggio"
+                        type="text">
                     <i class="fas fa-microphone"></i>
                 </div>
             </main>

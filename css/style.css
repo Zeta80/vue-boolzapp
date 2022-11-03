@@ -269,6 +269,18 @@ main .mainChat .dataAndCheck {
 }
 
 /* mandato sent */
+main .mainChat .message.sent {
+    position: relative;
+    padding: 6px 75px 8px 9px;
+    margin: 10px 0;
+    background-color: #DCF8C6;
+    border-radius: 7.5px;
+
+    align-self: flex-end;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
 main .mainChat .message div.menu {
     display: none;
@@ -280,6 +292,16 @@ main .mainChat .message div.menu {
     box-shadow: 1px 1px 6px lightgrey;
     z-index: 1;
     padding: 5px 0;
+}
+
+main .mainChat .message div.menu.active {
+    display: block;
+}
+
+main .mainChat .message div.menu span {
+    padding: 20px;
+    display: block;
+    color: black;
 }
 
 main .mainChat .message div.menu span:hover {
@@ -306,6 +328,10 @@ main .mainChat .message.received i.triangolino {
     color: #fff;
 }
 
+main .mainChat .message.received i.check {
+    display: none;
+}
+
 main .newMessage {
     display: flex;
     align-items: center;
@@ -322,7 +348,5 @@ main .newMessage input {
 }
 
 main .textMessage {
-    width: 40%;
-    background-color: lightgray;
-    padding: 1rem;
+    padding: 0.3rem 1rem;
 }
