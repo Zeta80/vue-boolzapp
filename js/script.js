@@ -5,6 +5,7 @@ createApp({
         return {
             active: 0,
             newMessage: "",
+
             contacts: [
                 {
                     name: 'Michele',
@@ -168,7 +169,8 @@ createApp({
                         }
                     ],
                 }
-            ]
+            ],
+            filteredContacts: this.contacts,
         };
     },
     created() {
@@ -214,9 +216,12 @@ createApp({
                 })
             }, 1000)
         },
+        filterContacts(letters) {
+            this.contacts = this.contacts.map(contact => {
+                if (contact.name.toLowerCase().includes(letters.target.value.toLowerCase())) contact.visible = true
+                else contact.visible = false
+                return contact
+            })
+        }
     },
-
-
 }).mount("#app");
-
-

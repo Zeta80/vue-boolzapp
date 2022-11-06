@@ -52,21 +52,27 @@
                 </div>
 
                 <div class="searchContact">
-                    <input type="text" placeholder="Cerca o inizia una nuova chat">
+                    <input type="text" placeholder="Cerca o inizia una nuova chat" @keyup="filterContacts">
                 </div>
 
                 <!-- lista di contatti presenti nel aside bar -->
                 <div class="contact">
                     <!-- il singolo contatto che si crea tot volte
                 per la lunghezza dell array e che al click cambia focus -->
-                    <div class="chat" v-for="(contact, index) in contacts" @click="activeChat(index)">
-                        <img :src="`assets/consegna/img/avatar` + contact.avatar + `.jpg`" alt="">
-                        <div class="nameAndInfo">
-                            <!-- prendo gli elementi dal oggetto della singola chat -->
-                            <h3>{{contact.name}}</h3>
-                            <p>{{contact.messages[contact.messages.length - 1].message}}</p>
+                    <div v-for="(contact, index) in contacts" @click="activeChat(index)">
+                        <div class="chat" v-if="contact.visible">
+
+                            <img :src="`assets/consegna/img/avatar` + contact.avatar + `.jpg`" alt="">
+                            <div class="nameAndInfo">
+                                <!-- prendo gli elementi dal oggetto della singola chat -->
+                                <h3>{{contact.name}}</h3>
+                                <p>{{contact.messages[contact.messages.length - 1].message}}</p>
+                            </div>
+                            <div class="data">{{contact.messages[contact.messages.length -
+                                1].date}}
+                            </div>
+
                         </div>
-                        <div class="data">{{contact.messages[contact.messages.length - 1].date}}</div>
                     </div>
                 </div>
             </aside>
